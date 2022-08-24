@@ -34,7 +34,7 @@ app.use(cookieParser(process.env.cookieSecret));
 
 var corsAllowedOrigins = [
     "https://planecompare.vercel.app",
-    "https://planecompare.pedromancano.xyz"
+    "https://planecompare.pedromancano.xyz",
 ];
 
 app.use(cors({

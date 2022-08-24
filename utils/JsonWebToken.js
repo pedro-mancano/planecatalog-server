@@ -7,14 +7,14 @@ const keys = {
 }
 
 function sign(payload, options) {
-    return jwt.sign(payload, keys.privateKey, {
+    return jwt.sign(payload, process.env.JWT_SECRET, {
         algorithm: 'RS256',
-        ...options,
+        ...options
     });
 }
 
 function verify(token, options) {
-    return jwt.verify(token, keys.publicKey, {
+    return jwt.verify(token, process.env.JWT_SECRET, {
         algorithms: ['RS256'],
         ...options,
     });
