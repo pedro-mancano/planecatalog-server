@@ -1,3 +1,7 @@
+require("dotenv").config({
+    path: "./.env.local"
+});
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -12,7 +16,7 @@ app.use(async (req, res, next) => {
     if (connection == null) {
         connection = await mongoose.connect(mongoURI, {
             useNewUrlParser: true,
-            maxPoolSize: 2,
+            maxPoolSize: 1,
             serverSelectionTimeoutMS: 5000,
         });
     }

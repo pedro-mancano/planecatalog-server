@@ -1,12 +1,11 @@
 .DS_Store
 node_modules
+keys
 /dist
-
 
 # local env files
 .env.local
 .env.*.local
-mongodb.enc
 
 # Log files
 npm-debug.log*
