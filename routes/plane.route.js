@@ -20,8 +20,16 @@ router.post('/all', Validator("PlaneAllValidation"), async (req, res) => {
     const planes = await PlaneModel.find(query).skip(skip).limit(10).lean();
     const count = await PlaneModel.countDocuments(query);
 
+    const cleanPlanes = planes.map(plane => {
+        delete plane._id;
+        delete plane.__v;
+        delete plane.createdAt;
+        delete plane.updatedAt;
+        return plane;
+    });
+
     res.json({
-        planes,
+        planes: cleanPlanes,
         count
     });
 })
