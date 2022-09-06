@@ -81,7 +81,7 @@
       ]
     },
     {
-      "name": "wingWeightCargo",
+      "name": "weightWingCargo",
       "type": "number_range",
       "default": 0,
       "unit": "kg",

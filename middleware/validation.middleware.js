@@ -3,6 +3,7 @@ const Validation = require('../validation/validation');
 const Validations = {
     ["LoginValidation"]: Validation.AuthValidation.LoginValidation,
     ["PlaneQueryValidation"]: Validation.PlaneValidation.PlaneQueryValidation,
+    ["PlaneAllValidation"]: Validation.PlaneValidation.PlaneAllValidation,
 }
 
 module.exports = (str) => async function (req, res, next) {

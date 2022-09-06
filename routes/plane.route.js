@@ -12,6 +12,20 @@ function filterParse(filter) {
     }
 }
 
+router.post('/all', Validator("PlaneAllValidation"), async (req, res) => {
+    const { skip } = req.body;
+
+    const query = {};
+
+    const planes = await PlaneModel.find(query).skip(skip).limit(10).lean();
+    const count = await PlaneModel.countDocuments(query);
+
+    res.json({
+        planes,
+        count
+    });
+})
+
 router.post('/query', Validator("PlaneQueryValidation"), async (req, res) => {
     const filter = req.body.filter;
 

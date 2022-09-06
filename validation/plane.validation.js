@@ -18,6 +18,16 @@ const PlaneQueryValidation = Joi.object({
     }
 });
 
+const PlaneAllValidation = Joi.object({
+    skip: Joi.number().integer().min(0).default(0),
+}).options({
+    stripUnknown: true,
+    messages: {
+        'any.required': '{#label} is required'
+    }
+});
+
 module.exports = {
-    PlaneQueryValidation
+    PlaneQueryValidation,
+    PlaneAllValidation
 }
