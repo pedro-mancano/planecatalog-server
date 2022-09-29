@@ -58,9 +58,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', (req, res) => {
-    res.redirect(corsAllowedOrigins[0]);
-});
+app.use(express.static('public'));
 
 const authRoute = require('./routes/auth.route');
 const userRoute = require('./routes/user.route');
