@@ -68,11 +68,7 @@ app.get('/', (req, res) => {
     res.status(200).send(fs.readFileSync(__dirname + '/static/index.html', 'utf8').toString());
 });
 
-const authRoute = require('./routes/auth.route');
-const userRoute = require('./routes/user.route');
 const planeRoute = require('./routes/plane.route');
-app.use('/auth', authRoute);
-app.use('/user', userRoute);
 app.use('/plane', planeRoute);
 
 
@@ -80,14 +76,5 @@ app.use('/plane', planeRoute);
 app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!");
 });
-
-//var loginRoute = require('./routes/login');
-//var userRoute = require('./routes/user');
-//var logsRoute = require('./routes/logs');
-//var adminRoute = require('./routes/admin');
-//app.use('/account', loginRoute)
-//app.use('/user', userRoute)
-//app.use('/logs', logsRoute);
-//app.use('/admin', adminRoute);
 
 module.exports = app;
