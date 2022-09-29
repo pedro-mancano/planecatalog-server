@@ -2,6 +2,7 @@ require("dotenv").config({
     path: "./.env.local"
 });
 
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -9,6 +10,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGODB_URI;
+const favicon = require('serve-favicon');
+const path = require('path');
 
 const fs = require('fs');
 
@@ -61,11 +64,10 @@ app.use(function (req, res, next) {
 });
 
 
-app.get('/favicon.ico', (req, res) => {
-    res.status(200).send(fs.readFileSync(__dirname + '/static/favicon.ico'));
-});
+app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
+
 app.get('/', (req, res) => {
-    res.status(200).send(fs.readFileSync(__dirname + '/static/index.html', 'utf8').toString());
+    res.status(200).send(fs.readFileSync(path.join(__dirname, 'static', 'index.html'), 'utf8').toString());
 });
 
 const planeRoute = require('./routes/plane.route');
