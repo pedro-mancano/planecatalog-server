@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGODB_URI;
 
+const fs = require('fs');
+
 app.disable('x-powered-by');
 var connection = null;
 app.use(async (req, res, next) => {
@@ -58,7 +60,13 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(express.static('public'));
+
+app.get('/favicon.ico', (req, res) => {
+    res.status(200).send(fs.readFileSync(__dirname + '/static/favicon.ico'));
+});
+app.get('/', (req, res) => {
+    res.status(200).send(fs.readFileSync(__dirname + '/static/index.html', 'utf8').toString());
+});
 
 const authRoute = require('./routes/auth.route');
 const userRoute = require('./routes/user.route');
@@ -66,6 +74,12 @@ const planeRoute = require('./routes/plane.route');
 app.use('/auth', authRoute);
 app.use('/user', userRoute);
 app.use('/plane', planeRoute);
+
+
+// 404 and Error handling
+app.use(function (req, res, next) {
+    res.status(404).send("Sorry can't find that!");
+});
 
 //var loginRoute = require('./routes/login');
 //var userRoute = require('./routes/user');
