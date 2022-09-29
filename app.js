@@ -33,8 +33,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser(process.env.cookieSecret));
 
 var corsAllowedOrigins = [
-    "https://planecompare.vercel.app",
     "https://planecompare.pedromancano.xyz",
+    "https://planecompare.vercel.app",
+    "https://pcs.pedromancano.xyz/"
 ];
 
 app.use(cors({
@@ -55,6 +56,10 @@ app.use(cors({
 app.use(function (req, res, next) {
     console.log(`[${req.method}] ${req.path}`);
     next();
+});
+
+app.get('/', (req, res) => {
+    res.redirect(corsAllowedOrigins[0]);
 });
 
 const authRoute = require('./routes/auth.route');
