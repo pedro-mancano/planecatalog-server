@@ -3,115 +3,125 @@ const mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PlaneScheme = new Schema({
-    name: {
-        type: String,
-        required: true
+    "name": {
+        "type": String,
+        "required": true
     },
-    seatCount: {
-        type: Number,
-        required: false,
-        default: 0
+    "wingType": {
+        "type": String,
+        "required": true,
+        "default": "unknown"
     },
-    wingspan: {
-        type: Number,
-        required: false,
-        default: 0
+    "seatCount": {
+        "type": Number,
+        "required": true,
+        "default": 1
     },
-    length: {
-        type: Number,
-        required: false,
-        default: 0
+    "wingspan": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    cabinLength: {
-        type: Number,
-        required: false,
-        default: 0
+    "totalLength": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    wingArea: {
-        type: Number,
-        required: false,
-        default: 0
+    "height": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    aspectRatio: {
-        type: Number,
-        required: false,
-        default: 0
+    "wingArea": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    weightEmpty: {
-        type: Number,
-        required: false,
-        default: 0
+    "meanAerodynamicChord": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    weightCargo: {
-        type: Number,
-        required: false,
-        default: 0
+    "aspectRatio": {
+        "type": Number,
+        "required": true,
+        "default": 1
     },
-    weightWingCargo: {
-        type: Number,
-        required: false,
-        default: 0
+    "maxCeiling": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    horsepower: {
-        type: Number,
-        required: false,
-        default: 0
+    "emptyWeight": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    VNE: {
-        type: Number,
-        required: false,
-        default: 0
+    "maxWeight": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    speedMax: {
-        type: Number,
-        required: false,
-        default: 0
+    "maxWingWeight": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    speedCruise: {
-        type: Number,
-        required: false,
-        default: 0
+    "maxCruiseSpeed": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    speedStallNoFlap: {
-        type: Number,
-        required: false,
-        default: 0
+    "stallFlapsSpeed": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    speedStallFlap: {
-        type: Number,
-        required: false,
-        default: 0
+    "stallNoFlapsSpeed": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    rateOfClimb: {
-        type: Number,
-        required: false,
-        default: 0
+    "liters": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    takeoffDistance: {
-        type: Number,
-        required: false,
-        default: 0
+    "autonomy": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    range: {
-        type: Number,
-        required: false,
-        default: 0
+    "consumption": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
-    autonomy: {
-        type: Number,
-        required: false,
-        default: 0
+    "fuelName": {
+        "type": String,
+        "required": true,
+        "default": "unknown"
     },
-    liftDragRatio: {
-        type: Number,
-        required: false,
-        default: 0
+    "motor": {
+        "type": String,
+        "required": true,
+        "default": "unknown"
     },
-    motor: {
-        type: String,
-        required: false,
-        default: ""
+    "power": {
+        "type": Number,
+        "required": true,
+        "default": 0
     },
+    "landingGearType": {
+        "type": String,
+        "required": true,
+        "default": "unknown"
+    },
+    "material": {
+        "type": String,
+        "required": true,
+        "default": "unknown"
+    }
 }, {
     collection: "planes"
 });

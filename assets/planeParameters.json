@@ -1,210 +1,233 @@
 {
   "parameters": [
     {
-      "name": "seatCount",
-      "type": "number_range",
-      "default": 1,
-      "unit": "",
-      "range": [
-        1,
-        500
-      ]
+        "name": "wingType",
+        "type": "select",
+        "default": "unknown",
+        "unit": "",
+        "select": [
+          "unknown",
+          "high",
+          "low"
+        ]
     },
     {
-      "name": "wingspan",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m",
-      "range": [
-        0,
-        100
-      ]
+        "name": "seatCount",
+        "type": "number_range",
+        "default": 1,
+        "unit": "",
+        "range": [
+          1,
+          500
+        ]
     },
     {
-      "name": "length",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m",
-      "range": [
-        0,
-        100
-      ]
+        "name": "wingspan",
+        "type": "number_range",
+        "default": 0,
+        "unit": "m",
+        "range": [
+          0,
+          85
+        ]
     },
     {
-      "name": "cabinLength",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m",
-      "range": [
-        0,
-        100
-      ]
+        "name": "totalLength",
+        "type": "number_range",
+        "default": 0,
+        "unit": "m",
+        "range": [
+          0,
+          85
+        ]
     },
     {
-      "name": "wingArea",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m2",
-      "range": [
-        0,
-        100
-      ]
+        "name": "height",
+        "type": "number_range",
+        "default": 0,
+        "unit": "m",
+        "range": [
+          0,
+          25
+        ]
     },
     {
-      "name": "aspectRatio",
-      "type": "number_range",
-      "default": 0,
-      "unit": "",
-      "range": [
-        0,
-        100
-      ]
+        "name": "wingArea",
+        "type": "number_range",
+        "default": 0,
+        "unit": "m2",
+        "range": [
+          0,
+          100
+        ]
     },
     {
-      "name": "weightEmpty",
-      "type": "number_range",
-      "default": 0,
-      "unit": "kg",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "meanAerodynamicChord",
+        "type": "number_range",
+        "default": 0,
+        "unit": "m",
+        "range": [
+          0,
+          10
+        ]
     },
     {
-      "name": "weightCargo",
-      "type": "number_range",
-      "default": 0,
-      "unit": "kg",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "aspectRatio",
+        "type": "number_range",
+        "default": 1,
+        "unit": "",
+        "range": [
+          0,
+          100
+        ]
     },
     {
-      "name": "weightWingCargo",
-      "type": "number_range",
-      "default": 0,
-      "unit": "kg",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "maxCeiling",
+        "type": "number_range",
+        "default": 0,
+        "unit": "ft",
+        "range": [
+          0,
+          40000
+        ]
     },
     {
-      "name": "horsepower",
-      "type": "number_range",
-      "default": 0,
-      "unit": "hp",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "emptyWeight",
+        "type": "number_range",
+        "default": 0,
+        "unit": "kg",
+        "range": [
+          0,
+          5000
+        ]
     },
     {
-      "name": "VNE",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "maxWeight",
+        "type": "number_range",
+        "default": 0,
+        "unit": "kg",
+        "range": [
+          0,
+          5000
+        ]
     },
     {
-      "name": "speedMax",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "maxWingWeight",
+        "type": "number_range",
+        "default": 0,
+        "unit": "kg/m2",
+        "range": [
+          0,
+          500
+        ]
     },
     {
-      "name": "speedCruise",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "maxCruiseSpeed",
+        "type": "number_range",
+        "default": 0,
+        "unit": "ktas",
+        "range": [
+          0,
+          500
+        ]
     },
     {
-      "name": "speedStallNoFlap",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "stallFlapsSpeed",
+        "type": "number_range",
+        "default": 0,
+        "unit": "ktas",
+        "range": [
+          0,
+          500
+        ]
     },
     {
-      "name": "speedStallFlap",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "stallNoFlapsSpeed",
+        "type": "number_range",
+        "default": 0,
+        "unit": "ktas",
+        "range": [
+          0,
+          500
+        ]
     },
     {
-      "name": "rateOfClimb",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m/s",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "liters",
+        "type": "number_range",
+        "default": 0,
+        "unit": "l",
+        "range": [
+          0,
+          500
+        ]
     },
     {
-      "name": "takeoffDistance",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "autonomy",
+        "type": "number_range",
+        "default": 0,
+        "unit": "h",
+        "range": [
+          0,
+          24
+        ]
     },
     {
-      "name": "range",
-      "type": "number_range",
-      "default": 0,
-      "unit": "m",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "consumption",
+        "type": "number_range",
+        "default": 0,
+        "unit": "l/h",
+        "range": [
+          0,
+          100
+        ]
     },
     {
-      "name": "autonomy",
-      "type": "number_range",
-      "default": 0,
-      "unit": "h",
-      "range": [
-        0,
-        10000
-      ]
+        "name": "fuelName",
+        "type": "custom",
+        "default": "unknown",
+        "unit": "",
+        "range": []
     },
     {
-      "name": "motor",
-      "type": "custom",
-      "default": "",
-      "unit": ""
+        "name": "motor",
+        "type": "custom",
+        "default": "unknown",
+        "unit": ""
     },
     {
-      "name": "liftDragRatio",
-      "type": "number_range",
-      "default": 1,
-      "unit": "",
-      "range": [
-        0,
-        50
-      ]
+        "name": "power",
+        "type": "number_range",
+        "default": 0,
+        "unit": "hp",
+        "range": [
+          0,
+          1000
+        ]
+    },
+    {
+        "name": "landingGearType",
+        "type": "select",
+        "default": "unknown",
+        "unit": "",
+        "select": [
+          "unknown",
+          "fixed",
+          "retractable"
+        ]
+    },
+    {
+        "name": "material",
+        "type": "select",
+        "default": "unknown",
+        "unit": "",
+        "select": [
+          "unknown",
+          "wood",
+          "composite",
+          "aluminium",
+          "steel",
+          "carbon"
+        ]
     }
-  ]
+]
 }
