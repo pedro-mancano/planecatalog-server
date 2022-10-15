@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const mongoURI = process.env.MONGODB_URI;
+const mongoSanitize = require('express-mongo-sanitize');
 const favicon = require('serve-favicon');
 const path = require('path');
 
@@ -29,13 +30,14 @@ app.use(async (req, res, next) => {
 });
 
 app.use(bodyParser.json({
-    limit: '2mb'
+    limit: '3mb'
 }));
 app.use(bodyParser.urlencoded({
-    limit: '2mb',
+    limit: '3mb',
     extended: true
 }))
 app.use(cookieParser(process.env.cookieSecret));
+app.use(mongoSanitize());
 
 var corsAllowedOrigins = [
     "https://planecompare.pedromancano.xyz",
@@ -59,22 +61,19 @@ app.use(cors({
 }));
 
 app.use(function (req, res, next) {
-    console.log(`[${req.method}] ${req.path}`);
+    //console.log(`[${req.method}] ${req.path}`);
     next();
 });
 
 
 app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
-
 app.get('/', (req, res) => {
     res.status(200).send(fs.readFileSync(path.join(__dirname, 'static', 'index.html'), 'utf8').toString());
 });
 
-const planeRoute = require('./routes/plane.route');
+const planeRoute = require('./routes/Plane.route');
 app.use('/plane', planeRoute);
 
-
-// 404 and Error handling
 app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!");
 });
