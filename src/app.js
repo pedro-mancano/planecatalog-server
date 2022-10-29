@@ -1,8 +1,3 @@
-require("dotenv").config({
-    path: "./.env.local"
-});
-
-
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -36,7 +31,7 @@ app.use(bodyParser.urlencoded({
     limit: '3mb',
     extended: true
 }))
-app.use(cookieParser(process.env.cookieSecret));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(mongoSanitize());
 
 var corsAllowedOrigins = [
@@ -68,7 +63,8 @@ app.use(function (req, res, next) {
 
 app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
 app.get('/', (req, res) => {
-    res.status(200).send(fs.readFileSync(path.join(__dirname, 'static', 'index.html'), 'utf8').toString());
+    res.status(200);
+    fs.createReadStream(path.join(__dirname, 'static', 'index.html')).pipe(res);
 });
 
 const planeRoute = require('./routes/Plane.route');
