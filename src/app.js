@@ -1,3 +1,23 @@
+const dotenv = require("dotenv");
+const Joi = require("joi");
+const path = require('path');
+
+dotenv.config({
+    path: path.join(__dirname, '../', '.env.local')
+});
+
+const envVarsSchema = Joi.object({
+    JWT_SECRET: Joi.string().required(),
+    MONGODB_URI: Joi.string().required(),
+    COOKIE_SECRET: Joi.string().required(),
+}).unknown().required();
+
+if (envVarsSchema.validate(process.env).error) {
+    console.error(`Error:\tMissing environment variables, please check .env.local, \n\t${envVarsSchema.validate(process.env).error.details[0].message}`);
+    process.exit(1);
+}
+
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -7,7 +27,6 @@ const mongoose = require('mongoose');
 const mongoURI = process.env.MONGODB_URI;
 const mongoSanitize = require('express-mongo-sanitize');
 const favicon = require('serve-favicon');
-const path = require('path');
 
 const fs = require('fs');
 
