@@ -56,8 +56,8 @@ app.use(mongoSanitize());
 var corsAllowedOrigins = [
     "https://planecompare.pedromancano.xyz",
     "https://planecompare.vercel.app",
-    "https://pcs.pedromancano.xyz/",
-    "https://planecompare-dev.vercel.app/"
+    "https://pcs.pedromancano.xyz",
+    "https://planecompare-dev.vercel.app"
 ];
 
 app.use(cors({
