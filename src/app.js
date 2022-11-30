@@ -56,20 +56,19 @@ app.use(mongoSanitize());
 var corsAllowedOrigins = [
     "https://planecompare.pedromancano.xyz",
     "https://planecompare.vercel.app",
-    "https://pcs.pedromancano.xyz/"
+    "https://pcs.pedromancano.xyz/",
+    "https://planecompare-dev.vercel.app/"
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
-        var msg = 'This website is not allowed to access your services';
         if (!origin) return callback(null, true);
         if (origin.indexOf(':3000') > -1 || origin.indexOf(':8080') > -1) {
             return callback(null, true);
         } else if (corsAllowedOrigins.includes(origin)) {
             return callback(null, true);
-        } else {
-            return callback(msg, false);
         }
+        return callback(null, false);
     },
     credentials: true
 }));
